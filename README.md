@@ -1,3 +1,83 @@
+# **МАҢЫЗДЫ: СТУДЕНТТЕРГЕ АРНАЛҒАН ТАПСЫРМАЛАР!**
+
+Дағдыларды бекітуге арналған практикалық тапсырмалар. Қателерден қорықпа, бұл оқу процесінің бір бөлігі!
+
+---
+
+# **Жоба 9/10: Қарапайым аутентификация қосымшасы**
+
+Токен-аутентификацияның базалық ағынын көрсететін full-stack қосымшасы.
+
+---
+
+**🚀 Технологиялар**
+
+* **Бэкенд**: FastAPI (`Depends`, `Header`, `OAuth2PasswordRequestForm` тәуелділіктері)
+* **Фронтенд**: Next.js (клиенттік маршруттау, токенді сақтау үшін `localStorage`)
+
+**✨ Функционал**
+
+* Бэкендтен токен сұрайтын кіру беті.
+* Токен браузердің `localStorage` ішінде сақталады.
+* Тек `Authorization` тақырыбында жарамды токен болған кезде ғана қол жетімді қорғалған бет.
+* Жүйеден шығу мүмкіндігі (токенді жою және қайта бағыттау).
+
+# **Сенің міндетің:**
+
+## Сенің тапсырмаң:
+
+# 1. **Пайдаланушы рөлдерін қосу:**
+> * ## **Бэкенд**: `FAKE_USER` ішіне `role: 'admin'` немесе `role: 'user'` өрісін қос. Тек әкімшіге ғана қолжетімді болатын бөлек `/api/admin-data` эндпоинтін жаса. Тәуелділік тек токенді ғана емес, рөлді де тексеруі керек.
+> * ## **Фронтенд**: Кіргеннен кейін пайдаланушы рөлін сақта және әкімші панеліне сілтемені көрсет/жасыр.
+
+# 2. **"Жанды" токен:**
+> * ## **Бэкенд**: Статикалық `SECRET_TOKEN` орнына, әр сәтті кіру кезінде жаңа бірегей токен генерацияла (мысалы, `uuid.uuid4()` көмегімен). Оны серверде `{ "token": "username" }` сөздігінде сақта. Тексеру кезінде токенді осы сөздіктен ізде. Шыққан кезде (logout) токенді сөздіктен жойып, оны жарамсыз ет.
+
+# 3. **Токеннің өмір сүру уақыты (күрделі):**
+> * ## **Бэкенд**: Токен жасау кезінде онымен бірге жасалған уақытын сақта. Тәуелділікті тексеру кезінде жасалған сәттен бастап 1 сағаттан аспағанына көз жеткіз.
+
+---
+
+# **IMPORTANT: TASKS FOR STUDENTS!**
+
+These are practical assignments to consolidate your skills. Don't be afraid of mistakes; they are part of the learning process!
+
+---
+
+# **Project 9/10: Simple Authentication Application**
+
+A full-stack application demonstrating a basic token authentication flow.
+
+---
+
+**🚀 Technologies**
+
+* **Backend**: FastAPI (`Depends`, `Header`, `OAuth2PasswordRequestForm` dependencies)
+* **Frontend**: Next.js (client-side routing, `localStorage` for token storage)
+
+**✨ Functionality**
+
+* Login page that requests a token from the backend.
+* The token is stored in the browser's `localStorage`.
+* A protected page that is accessible only with a valid token in the `Authorization` header.
+* Logout functionality (deleting the token and redirecting).
+
+# **Your Task:**
+
+## Your Mission:
+
+# 1. **Add User Roles:**
+> * ## **Backend**: Add a `role: 'admin'` or `role: 'user'` field to `FAKE_USER`. Create a separate `/api/admin-data` endpoint that is only accessible to admins. The dependency should check not only the token but also the role.
+> * ## **Frontend**: After login, store the user's role and show/hide the link to the admin panel accordingly.
+
+# 2. **"Live" Token:**
+> * ## **Backend**: Instead of a static `SECRET_TOKEN`, generate a new unique token (e.g., using `uuid.uuid4()`) on each successful login. Store it on the server in a dictionary `{ "token": "username" }`. When validating, look for the token in this dictionary. On logout, remove the token from the dictionary, invalidating it.
+
+# 3. **Token Lifetime (Advanced):**
+> * ## **Backend**: When creating a token, save its creation time along with it. In the dependency check, ensure that no more than, for example, 1 hour has passed since its creation.
+
+---
+
 # **ВАЖНО: ЗАДАЧИ ДЛЯ СТУДЕНТОВ!**
 
 Перед тобой практические задания для закрепления навыков. Не бойся ошибок, это часть обучения!
