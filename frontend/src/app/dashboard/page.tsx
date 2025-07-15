@@ -36,6 +36,7 @@ export default function DashboardPage() {
 
   const handleLogout = () => {
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('user_role');
     router.push('/login');
   };
 
@@ -43,10 +44,21 @@ export default function DashboardPage() {
     return <p className="text-center mt-10">Загрузка...</p>;
   }
 
+  const userRole = localStorage.getItem('user_role');
+
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold">Защищенная Панель</h1>
       <p className="mt-4 text-xl p-4 bg-green-100 border border-green-400 rounded-md">{secretMessage}</p>
+      
+      {userRole === 'admin' && (
+        <div className="mt-4">
+          <a href="/admin" className="bg-purple-500 text-white p-2 rounded hover:bg-purple-600 inline-block">
+            Админ панель
+          </a>
+        </div>
+      )}
+      
       <button onClick={handleLogout} className="mt-6 bg-red-500 text-white p-2 rounded hover:bg-red-600">
         Выйти
       </button>
